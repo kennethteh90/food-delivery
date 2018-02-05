@@ -7,7 +7,7 @@ class DeliveryOrderSerializer < ActiveModel::Serializer
   end
 
   def delivery_time
-    object.serving_datetime.strftime("%I:%M%p")
+    object.serving_datetime.strftime("%I:%M%p") + "\u2014" + (object.serving_datetime + 1800).strftime("%I:%M%p")
   end
 
 end

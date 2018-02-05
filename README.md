@@ -31,6 +31,8 @@ Create, configure and seed the database
 rake db:create db:migrate db:seed
 ```
 
+### Usage
+
 Available JSON endpoints:
 ```
 Path: /orders
@@ -72,4 +74,4 @@ Example response:
 
 ## Authors
 
-* **Kenneth Teh** - [Kenneth](https://github.com/kennethteh90)
+* **Kenneth Teh** - [Github](https://github.com/kennethteh90)

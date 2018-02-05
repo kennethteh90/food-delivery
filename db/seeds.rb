@@ -15,7 +15,7 @@ DatabaseCleaner.clean_with :truncation
 end
 
 for i in 1..5 do
-  DeliveryOrder.create(order_id: 'G' + format('%.4d', (i + 120)), serving_datetime: Faker::Time.forward(1, :morning))
+  DeliveryOrder.create(order_id: 'G' + format('%.4d', (i + 120)), serving_datetime: Faker::Time.forward(1, :morning).beginning_of_hour + Faker::Number.between(0, 2)*1800)
 end
 
 DeliveryOrder.all.each do |order|

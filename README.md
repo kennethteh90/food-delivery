@@ -1,4 +1,4 @@
-Heroku link: [to be added]
+Heroku link: http://food-delivery-api.herokuapp.com/
 
 # Food Delivery App
 

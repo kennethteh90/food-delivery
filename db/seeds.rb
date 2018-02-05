@@ -20,4 +20,9 @@ end
 
   DeliveryOrder.create(order_id: Faker::Number.number(5), serving_datetime: Faker::Time.forward(1, :morning))
 
+  DeliveryOrder.all.each do |order|
+    order.order_items.create(delivery_order_id: 1, serving_date: Faker::Time.forward(1, :morning), meal_id: 1, quantity: 1, unit_price: 100)
+  end
+
+
 end

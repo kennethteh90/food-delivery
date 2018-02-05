@@ -1,23 +1,13 @@
 class DeliveryOrderSerializer < ActiveModel::Serializer
-  attributes :order_id, :serving_datetime
+  attributes :order_id, :serving_datetime, :delivery_date, :delivery_time
   has_many :order_items
 
-  # private
+  def delivery_date
+    object.serving_datetime.to_date
+  end
 
-  # def items
-  #   OrderItemSerializer.new(object.order_items).attributes
-  # end
-
-  # def delivery_date
-  #   delivery_date = serving_datetime.to_date
-  # end
-
-
-  # def current
-  #   {
-  #     temp: 1,
-  #     status: "rainy"
-  #   }
-  # end
+  def delivery_time
+    object.serving_datetime.strftime("%I:%M%p")
+  end
 
 end

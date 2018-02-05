@@ -1,5 +1,5 @@
 class DeliveryOrderSerializer < ActiveModel::Serializer
-  attributes :order_id, :serving_datetime, :delivery_date, :delivery_time
+  attributes :order_id, :delivery_date, :delivery_time
   has_many :order_items
 
   def delivery_date

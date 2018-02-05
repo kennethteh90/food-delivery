@@ -11,19 +11,15 @@ require 'database_cleaner'
 DatabaseCleaner.clean_with :truncation
 
 10.times do
-
   Meal.create(name: Faker::Food.unique.dish, byline: Faker::Food.unique.ingredient)
-
 end
 
 for i in 1..5 do
-
-  DeliveryOrder.create(order_id: "G" + "%.4d" % (i+120), serving_datetime: Faker::Time.forward(1, :morning))
-
+  DeliveryOrder.create(order_id: 'G' + format('%.4d', (i + 120)), serving_datetime: Faker::Time.forward(1, :morning))
 end
 
 DeliveryOrder.all.each do |order|
-  Faker::Number.between(1,5).times do
-    order.order_items.create(delivery_order_id: order.id, serving_date: order.serving_datetime, meal_id: Faker::Number.between(1,10), quantity: Faker::Number.between(1,5), unit_price: Faker::Number.between(100,1000))
+  Faker::Number.between(1, 5).times do
+    order.order_items.create(delivery_order_id: order.id, serving_date: order.serving_datetime, meal_id: Faker::Number.between(1, 10), quantity: Faker::Number.between(1, 5), unit_price: Faker::Number.between(100, 1000))
   end
 end

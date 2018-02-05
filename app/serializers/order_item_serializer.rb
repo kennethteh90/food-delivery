@@ -8,5 +8,4 @@ class OrderItemSerializer < ActiveModel::Serializer
   def total_price
     object.unit_price * object.quantity
   end
-
 end

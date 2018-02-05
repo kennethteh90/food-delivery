@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'database_cleaner'
+
+DatabaseCleaner.clean_with :truncation
+
+10.times do
+
+  Meal.create(name: Faker::Food.dish, byline: Faker::Food.ingredient)
+
+end
+
+5.times do
+
+  DeliveryOrder.create(order_id: Faker::Number.number(5), serving_datetime: Faker::Time.forward(1, :morning))
+
+end

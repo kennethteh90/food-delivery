@@ -7,7 +7,10 @@ class OrdersController < ApplicationController
 
   def show
     order = DeliveryOrder.find_by(order_id: params[:order_id])
-    render json: order, root: "order"
+    if order
+      render json: order, root: "order"
+    else head :not_found
+    end
   end
 
 end

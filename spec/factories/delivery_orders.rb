@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :delivery_order do
-    order_id ""
-    serving_datetime ""
+    sequence(:order_id) {|n| 'G012' + n.to_s}
+    serving_datetime Faker::Time.forward(1, :morning)
   end
 end

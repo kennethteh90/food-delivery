@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    order = DeliveryOrder.find(params[:id])
+    order = DeliveryOrder.find_by(order_id: params[:order_id])
     render json: order
   end
 

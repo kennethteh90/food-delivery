@@ -1,11 +1,15 @@
 class OrderItemSerializer < ActiveModel::Serializer
-  attributes :name, :quantity, :total_price
+  attributes :order_item_id, :name
 
   def name
     object.meal.name
   end
 
-  def total_price
-    object.unit_price * object.quantity
+  def order_item_id
+    object.meal_id
   end
+
+  # def total_price
+  #   object.unit_price * object.quantity
+  # end
 end

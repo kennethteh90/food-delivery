@@ -1,5 +1,5 @@
 class DeliveryOrderSerializer < ActiveModel::Serializer
-  attributes :order_id, :delivery_date, :delivery_time
+  attributes :id, :order_id, :delivery_date, :delivery_time, :feedback_submitted
   has_many :order_items
 
   def delivery_date
@@ -9,4 +9,9 @@ class DeliveryOrderSerializer < ActiveModel::Serializer
   def delivery_time
     object.serving_datetime.strftime('%I:%M%p') + "\u2014" + (object.serving_datetime + 1800).strftime('%I:%M%p')
   end
+
+  def feedback_submitted
+    object.feedback ? true : false
+  end
+
 end

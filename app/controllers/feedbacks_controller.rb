@@ -1,12 +1,15 @@
 class FeedbacksController < ApplicationController
 
   def index
-    feedbacks = Feedback.all
+    order = DeliveryOrder.find_by(order_id: params[:order_order_id])
+    return head :not_found unless order
+    feedbacks = order.order_items.map { |item| item.feedback if order.feedback } << order.feedback
+    feedbacks.reverse!
+    feedbacks.reject! { |item| item == nil }
     render json: feedbacks, root: "feedbacks"
   end
 
   def create
-    # byebug
     # Handle if JSON has root "feedbacks"
     if params[:feedbacks]
       feedback_params.each do |p|

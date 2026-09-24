@@ -1,3 +1,5 @@
+> **Maintained lightly** for historical Medium/blog links. Active portfolio: [kennethteh90.github.io](https://github.com/kennethteh90/kennethteh90.github.io).
+
 Heroku link: http://food-delivery-api.herokuapp.com/
 
 # Food Delivery App
